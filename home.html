@@ -1,0 +1,406 @@
+
+<html>
+	<head><title>NorthKino</title>
+	<link rel="stylesheet" type="text/css" href="home_style.css" />
+	<script src="jquery-1.8.2.js"></script>
+	
+	<script>
+		//var check="true";
+		var i = 1;
+		var stopper;
+		function sliderInterval()
+		{
+			$('#activeHImg').css('width','800px');
+			$('#activeVImg').css('height','440px');
+			stopper = setInterval("slide()",3000);
+		}
+		
+		function slide(x)
+		{
+			if(x!=null)
+			{
+				i=x;
+				window.clearInterval(stopper);
+				stopper = setInterval("slide()",3000);
+			}
+			if(i<7)
+			{
+				var value=$("#id"+i).attr("checked");
+				$("#id"+i).attr("checked", true);
+				i++;
+			}
+			else
+			{
+				$("#id1").attr("checked", true);
+				i=2;
+			}
+		}
+	</script>
+	<script>
+		
+			function quickBooking()
+			{
+				var CinemaSelected = $('#quickCinemaSelect').val();
+				if(CinemaSelected != "")
+				{
+					$("#movieSelect").removeAttr('disabled');
+					var MovieSelected = $('#movieSelect').val();
+					if(MovieSelected != "")
+					{
+						$("#daySelect").removeAttr('disabled');
+						var DaySelected = $('#daySelect').val();
+						if(DaySelected != "")
+						{
+							$("#timeSelect").removeAttr('disabled');
+							var TimeSelected = $('#timeSelect').val();
+							if(TimeSelected != "")
+							{
+								$("#quick_button").removeAttr('disabled');
+							}
+						}
+					}
+				}
+			}
+		
+				
+	</script>
+	<script>
+	
+		var checking = true;
+		function soonAccord()
+		{
+			if (checking == true)
+			{
+				$('#accordion_comingsoon').css('height','700px');
+				checking = false;
+			}
+			else
+			{
+			
+				$('#accordion_comingsoon').css('height','30px');
+				//window.clearInterval(myinterval);
+				checking = true;
+			}
+			var targetValue = $('#accordion_comingsoon').offset().top;
+			$('html,body').animate({scrollTop: targetValue}, 'slow');
+			event.preventDefault();
+		}
+	</script>
+	<script>
+	function accord(obj)
+	{		
+	
+		var childs = obj.childNodes;
+		
+		var headerHeight = 0;
+		var contentHeight = 0;
+	
+		// Go through all the child nodes 
+		for(var i = 0; i < childs.length; i++)
+		{
+			var cn = childs[i].className;
+			
+			// Check that this child has a CSS class name
+			if(typeof cn != 'undefined')
+			{
+				// Check the itemheader
+				if (cn.indexOf("itemheader") != -1)
+				{
+					headerHeight = childs[i].offsetHeight;
+				}
+				// check the itemcontent
+				else if(cn.indexOf("accordContent") != -1)
+				{
+					contentHeight = childs[i].offsetHeight;
+				}
+			}				
+		}
+			
+
+		// Check whether we should increase or decrease the size
+		if(obj.offsetHeight < (headerHeight + contentHeight - 2))
+		{
+			obj.style.height = (headerHeight + contentHeight) + "px";
+	 		
+	 		// Select the target element and the top offset from it
+			var targetValue = $(obj).offset().top;
+			
+			// Animate the scrollTop property of html element from its current position to targetValue
+			$('html,body').animate({scrollTop: targetValue}, 'slow');
+			
+			// stop the default behaviour of anchor
+			event.preventDefault();
+	 	}
+		else
+		{
+			obj.style.height = headerHeight + "px";
+		}
+	}
+	
+	
+	function submenuShow(element)
+  	{					  			  		
+  		if($(element).css('display') == 'none')
+  		{				  			  		
+  			$(element).slideDown("slow");
+  			//$('#mouseMovies').trigger("mouseover"); 
+  			//$('#mouseMovies').css('background-image','-webkit-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%)').css('padding-left','30px').css('padding-right'.'30px'); 				
+  			$('#mouseMovies').toggleClass("toggler");
+  			//$('#mouseMovies').css('paddingLeft','30px').css('paddingRight'.'30px');
+  		}
+  		else
+  		{
+  			$(element).slideUp("slow");
+  			//$('#mouseMovies').trigger("mouseout");
+  			//$('#mouseMovies').css('background-image','').css('padding','15px');
+  			$('#mouseMovies').toggleClass("toggler");
+  			//$('#mouseMovies').css('padding','15px');
+  		} 				
+  	}
+  	
+  		//horizontal
+  	function stretchH(x)
+  	{
+        	//$(x).animate({width:'650px'},{queue:false, duration:600, easing: 'easeOutBounce'});
+       	$(x).css('width','800px');
+       	$(x).css('zIndex','15');
+       	$('#activeHImg').css('width','40px');
+    }
+ 
+    function squashH(x)
+    {
+        //$(x).animate({width:'40px'},{queue:false, duration:600, easing: 'easeOutBounce'});
+        $(x).css('width','40px');
+        $(x).css('zIndex','0');
+        $('#activeHImg').css('width','800px');
+    }
+  	
+  	//vertical
+  	function stretchV(x)
+  	{
+  		$(x).css('height','440px');
+  		$(x).css('zIndex','15');
+       	$('#activeVImg').css('height','35px');
+  	}
+  	function squashV(x)
+  	{
+  		$(x).css('height','35px');
+  		$(x).css('zIndex','0');
+       	$('#activeVImg').css('height','440px');
+  	}
+  	
+	</script>
+	</head>
+	<body onload="sliderInterval()">
+		<div class="header">
+			<table width="150" border="0" id="search">
+				<tr>
+					<td><input type="text" name="SearchQuery" placeholder="Search" size="15" /></td>
+					<td><input type="button" name="search" value="GO" id="searchButton" /></td>
+				</tr>
+			</table>
+			</br>
+			<div id="logo">
+				<a href="home.html"><img src="logo.png"><div id="name">Northkino</div></a>
+				<form action="">
+					<select name="location" class="location_options">
+						<option value="" disabled="disabled" selected="selected">Choose your location</option>
+						<option value="Helsinki">Helsinki</option>
+						<option value="Turku">Turku</option>
+						<option value="Tampere">Tampere</option>
+						<option value="Oulu">Oulu</option>
+						<option value="Rovaniemi">ROvaniemi</option>
+					</select>
+				</form>
+			</div>
+		</div>
+		<br>
+		<div style="{clear: both;}"></div>
+		<div class="container">
+			<div class="main_container">
+				<div id="menu">
+					<ul id="menu_list">
+						<a href="home.html"><li id="active">HOME</li></a>
+						<a href="javascript:void(0)" onclick="submenuShow('#submenu')"><li id="mouseMovies">MOVIES</li></a>
+						<a href="contact.html"><li>CONTACT</li></a>
+					</ul>
+				</div>
+				<div id="submenu">
+					<a href="more_movie.html">Now showing</a>
+					<a href="more_movie.html">Coming Soon</a>
+				</div>
+				<div class="slider">
+						<input type="radio" name="slide_switch" id="id1" checked="checked"/>
+						<label for="id1">
+							<img src="rog.png" onclick="slide(1)">
+						</label>
+						<a href="more_movie.html"><img src="rog.png" /></a>
+						<input type="radio" name="slide_switch" id="id2"/>
+						<label for="id2">
+							<img src="todd.png" onclick="slide(2)">
+						</label>
+						<a href="more_movie.html"><img src="todd.png" /></a>
+						<input type="radio" name="slide_switch" id="id3" />
+						<label for="id3">
+							<img src="ted.png" onclick="slide(3)">
+						</label>
+						<a href="more_movie.html"><img src="ted.png" /></a>
+						<input type="radio" name="slide_switch" id="id4" />
+						<label for="id4">
+							<img src="rome.png" onclick="slide(4)">
+						</label>
+						<a href="more_movie.html"><img src="rome.png" /></a>
+						<input type="radio" name="slide_switch" id="id5" />
+						<label for="id5">
+							<img src="mada.png" onclick="slide(5)">
+						</label>
+						<a href="more_movie.html"><img src="mada.png" /></a>
+						<input type="radio" name="slide_switch" id="id6" />
+						<label for="id6">
+							<img src="ice.png" onclick="slide(6)">
+						</label>
+						<a href="ted.html"><img src="ice.png" /></a>
+				</div>
+				<script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
+				<div class="quick_booking">
+					<h3>Quick book tickets</h3>
+					<div class="quick_ticket">
+						<form action="more_movie.html">
+							<select name="location" id="quickCinemaSelect" class="quick_option" onchange="quickBooking()">
+								<option value="" disabled="disabled" selected="selected">Choose your location</option>
+								<option value="Helsinki">Helsinki</option>
+								<option value="Turku">Turku</option>
+								<option value="Tampere">Tampere</option>
+								<option value="Oulu">Oulu</option>
+								<option value="Rovaniemi">Rovaniemi</option>
+							</select></br></br>
+							<select name="movieName" id="movieSelect" class="quick_option" disabled="disabled" onchange="quickBooking()">
+								<option value="">Choose a Movie</option>
+								<option value="Rock of Ages">Rock Of Ages</option>
+								<option value="Sweeney Todd">Sweeney Todd</option>
+								<option value="Tedd">Tedd</option>
+								<option value="Madagascar 3">Madagascar 3</option>
+								<option value="Ice Age 4">Ice Age 4</option>
+							</select></br></br>
+							<select name="movieDay" id="daySelect" class="quick_option" disabled="disabled" onchange="quickBooking()">
+								<option value="">Choose a Day</option>
+								<option value="21th November">21th November</option>
+								<option value="22th November">22th November</option>
+								<option value="23th November">23th November</option>
+								<option value="24th November">24th November</option>
+								<option value="25th November">25th November</option>
+								<option value="26th November">26th November</option>
+								<option value="27th November">27th November</option>
+								<option value="28th November">28th November</option>
+								<option value="29th November">29th November</option>
+								<option value="30th November">30th November</option>
+							</select></br></br>
+							<select name="movieTime" id="timeSelect" class="quick_option" disabled="disabled" onchange="quickBooking()">
+								<option value="">Choose a Time</option>
+								<option value="1300">1300</option>
+								<option value="1500">1500</option>
+								<option value="1730">1730</option>
+							</select></br></br>
+							<input name="" type="submit" id="quick_button" value="Find Tickets" disabled="disabled" />
+							
+						</form>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="sub_container">
+				<div class="accordions">
+					<div class="itemheader" onclick="accord(this.parentNode)">
+						<span class="accordImg"></span>News/offers
+					</div>
+					<div class="accordContent">
+						<div class="nowShowing" id="nowShowing1">
+							<a href="#.html">
+								<div class="nowShowingContent">
+									<div class="nowShowingImg"><img src="todd.png" width='100'></div>
+									<div class="nowShowingArticle"><h2>Sweeny Todd</h2><p>Click for more!</p></div>
+								</div>
+							</a>
+						</div>
+						<div class="nowShowing" id="nowShowing2">
+							<a href="#.html">
+								<div class="nowShowingContent">
+									<div class="nowShowingImg"><img src="rog.png" width='100'></div>
+									<div class="nowShowingArticle"><h2>Rock Of Ages</h2><p>Click for more!</p></div>
+								</div>
+							</a>
+						</div>
+						<div class="nowShowing" id="nowShowing3">
+							<a href="#.html">
+								<div class="nowShowingContent">
+									<div class="nowShowingImg"><img src="ted.png" width='100'></div>
+									<div class="nowShowingArticle"><h2>TED</h2><p>Click for more!</p></div>
+								</div>
+							</a>
+						</div>
+						<div class="nowShowing" id="nowShowing4">
+							<a href="#.html">
+								<div class="nowShowingContent">
+									<div class="nowShowingImg"><img src="ice.png" width='100'></div>
+									<div class="nowShowingArticle"><h2>Ice age 4</h2><p>Click for more!</p></div>
+								</div>
+							</a>
+						</div>
+						<div class="nowShowing" id="nowShowing5">
+							<a href="#.html">
+								<div class="nowShowingContent">
+									<div class="nowShowingImg"><img src="mada.png" width='100'></div>
+									<div class="nowShowingArticle"><h2>Madagascar 3</h2><p>Click for more!</p></div>
+								</div>
+							</a>
+						</div>
+						<div class="nowShowing" id="nowShowing6">
+							<a href="#.html">
+								<div class="nowShowingContent">
+									<div class="nowShowingImg"><img src="rome.png" width='100'></div>
+									<div class="nowShowingArticle"><h2>To rome with love</h2><p>Click for more!</p></div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="accordions" id="accordion_comingsoon">
+					<div class="itemheader" onclick="soonAccord();">
+						Comming Soon
+					</div>
+					<div class="accordContent" id="comingSoon">
+						<ul id="vertical"> 
+								<li onmouseover="stretchV(this)" onmouseout="squashV(this)"><a href="more_movie.html"><img src="rog.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchV(this)" onmouseout="squashV(this)"><a href="more_movie.html"><img src="ted.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchV(this)" onmouseout="squashV(this)"><a href="more_movie.html"><img src="mada.png" width="800" alt="" height="440" /></a></li> 
+								<li id="activeVImg"><a href="more_movie.html"><img src="ice.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchV(this)" onmouseout="squashV(this)"><a href="more_movie.html"><img src="rog.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchV(this)" onmouseout="squashV(this)"><a href="more_movie.html"><img src="todd.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchV(this)" onmouseout="squashV(this)"><a href="more_movie.html"><img src="rome.png" width="800" alt="" height="440" /></a></li> 
+						</ul> 
+					</div>
+				</div>
+								
+				<div class="accordions">
+					<div class="itemheader" onclick="accord(this.parentNode);">
+						<span class="accordImg"></span>Now Showing
+					</div>
+					<div class="accordContent">
+						<div id="showingContent" style="{position: relative;}">
+							<ul id="horizontal"> 
+								<li onmouseover="stretchH(this)" onmouseout="squashH(this)"><a href="more_movie.html"><img src="rog.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchH(this)" onmouseout="squashH(this)"><a href="more_movie.html"><img src="ted.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchH(this)" onmouseout="squashH(this)"><a href="more_movie.html"><img src="mada.png" width="800" alt="" height="440" /></a></li> 
+								<li id="activeHImg"><a href="more_movie.html"><img src="ice.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchH(this)" onmouseout="squashH(this)"><a href="more_movie.html"><img src="rog.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchH(this)" onmouseout="squashH(this)"><a href="more_movie.html"><img src="todd.png" width="800" alt="" height="440" /></a></li> 
+								<li onmouseover="stretchH(this)" onmouseout="squashH(this)"><a href="more_movie.html"><img src="rome.png" width="800" alt="" height="440" /></a></li> 
+							</ul> 
+ 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</hmtl>

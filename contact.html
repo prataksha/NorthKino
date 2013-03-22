@@ -1,0 +1,265 @@
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="contact_style.css" />
+		<script src="jquery-1.8.2.js"></script>
+		<script>
+			$(document).ready(function () {
+				$(".oulu").css('margin-right','0');
+				$(".foroulu").css('visibility','visible');
+			});
+  		</script>
+		<script>
+			function submenuShow(element)
+  			{					  			  		
+  				if($(element).css('display') == 'none')
+  				{				  			  		
+  					$(element).slideDown("slow");
+		  			$('#mouseMovies').toggleClass("toggler");
+		  		}
+  				else
+  				{
+  					$(element).slideUp("slow");
+		  			$('#mouseMovies').toggleClass("toggler");
+		  		} 				
+  			}
+  
+  			function address(x)
+  			{
+  				var store = parseInt($(x).css('margin-right'))
+  				if (store == 10)
+  				{
+  					$('#places li').css('margin-right','10px');
+  					$(x).css('margin-right','0');
+  				}
+  				else
+  				{
+  					$(x).css('margin-right','10px');
+  				}
+  			}
+  			function scroller(x)
+  			{/*
+  				var targetValue = $(x).offset().top;
+  				//$('html, body').animate({scrollTop: targetValue}, 'slow');
+  				$('html,body').animate({scrollTop: targetValue}, 'slow');
+  				event.preventDefault();*/
+  				$('.contactAddress').css('visibility','hidden').css('zIndex','0');
+  				$(x).css('visibility','visible').css('zIndex','15');
+  			}
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<table width="150" border="0" id="search">
+				<tr>
+					<td><input type="text" name="SearchQuery" placeholder="Search" size="15" /></td>
+					<td><input type="button" name="search" value="GO" id="searchButton" /></td>
+				</tr>
+			</table>
+			</br>
+			<div id="logo">
+				<a href="home.html"><img src="logo.png"><div id="name">Northkino</div></a>
+				<form action="">
+					<select name="location" class="location_options">
+						<option value="" disabled="disabled" selected="selected">Choose your location</option>
+                                                <option value="Helsinki">Helsinki</option>
+                                                <option value="Turku">Turku</option>
+                                                <option value="Tampere">Tampere</option>
+                                                <option value="Oulu">Oulu</option>
+                                                <option value="Rovaniemi">Rovaniemi</option>
+					</select>
+				</form>
+			</div>
+		</div>
+		<br>
+		<div style="{clear: both;}"></div>
+		<div class="container">
+			<div class="main_container">
+				<div id="menu">
+					<ul id="menu_list">
+						<a href="home.html"><li>HOME</li></a>
+						<a href="javascript:void(0)" onclick="submenuShow('#submenu')"><li id="mouseMovies">MOVIES</li></a>
+						<a href="contact.html"><li id="active">CONTACT</li></a>
+					</ul>
+				</div>
+				<div id="submenu">
+					<a href="more_movie.html">Now showing</a>
+					<a href="more_movie.html">Coming Soon</a>
+				</div>
+				<div class="content_container">
+					<div class="leftContainer">
+						<ul id="places">
+							<li class="helsinki" onclick="address(this);scroller('.forhelsinki');">Helsinki</li>
+							<li class="turku" onclick="address(this);scroller('.forturku');">Turku</li>
+							<li class="tampere" onclick="address(this);scroller('.fortampere');">Tampere</li>
+							<li class="oulu" onclick="address(this);scroller('.foroulu');">Oulu</li>
+							<li class="rovaniemi" onclick="address(this);scroller('.forrovaniemi');">Rovaniemi</li>
+						</ul>
+					</div>
+					<div class="rightContainer">
+						<div class="contactAddress forhelsinki">
+							<div class="contactText">
+								<div class="head">
+									<div class="title">
+										NorthKino
+									</div>
+									<div class="address">
+										Salomonkatu 15,
+										00100 Helsinki
+									</div>
+								</div>
+								<br />
+								<div classs="mail">
+									<div class="emailTitle">
+										Email
+									</div>
+									<div class="emailText">
+										Helsinki@finnkino.com
+									</div>
+								</div>
+								<br />
+								<div class="services">
+									<div class="serviceTitle">
+										Telephone service
+									</div>
+									<div class="serviceTelephone">
+										Service hours: Weekdays 9:00-16:00<br>
+										09-1311 9205 (local network charge)
+									</div>
+								</div>
+							</div>
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fi/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy,+Torikatu,+Oulu&amp;aq=0&amp;oq=finnkino&amp;sll=65.009491,25.474248&amp;sspn=0.011622,0.048752&amp;ie=UTF8&amp;hq=Finnkino+Oy,&amp;hnear=Torikatu,+Oulu&amp;ll=65.009491,25.474248&amp;spn=0.006295,0.007972&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.fi/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy,+Torikatu,+Oulu&amp;aq=0&amp;oq=finnkino&amp;sll=65.009491,25.474248&amp;sspn=0.011622,0.048752&amp;ie=UTF8&amp;hq=Finnkino+Oy,&amp;hnear=Torikatu,+Oulu&amp;ll=65.009491,25.474248&amp;spn=0.006295,0.007972&amp;t=m" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+						</div>
+						<div class="contactAddress forturku">
+							<div class="contactText">
+								<div class="head">
+									<div class="title">
+										NorthKino
+									</div>
+									<div class="address">
+										Kauppiaskatu 13, 20100 Turku
+									</div>
+								</div>
+								<br />
+								<div classs="mail">
+									<div class="emailTitle">
+										Email
+									</div>
+									<div class="emailText">
+										turku@finnkino.com
+									</div>
+								</div>
+								<br />
+								<div class="services">
+									<div class="serviceTitle">
+										Telephone service
+									</div>
+									<div class="serviceTelephone">
+										Service hours: Weekdays 9:00-16:00<br>
+										09-1311 9205 (local network charge)
+									</div>
+								</div>
+							</div>
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kauppiaskatu+13,+20100+Turku+finnkino&amp;aq=&amp;sll=66.502184,25.730946&amp;sspn=0.004851,0.021136&amp;ie=UTF8&amp;hq=finnkino&amp;hnear=Kauppiaskatu+13,+Turku,+Finland&amp;t=m&amp;ll=60.45314,22.266691&amp;spn=0.006295,0.006295&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Kauppiaskatu+13,+20100+Turku+finnkino&amp;aq=&amp;sll=66.502184,25.730946&amp;sspn=0.004851,0.021136&amp;ie=UTF8&amp;hq=finnkino&amp;hnear=Kauppiaskatu+13,+Turku,+Finland&amp;t=m&amp;ll=60.45314,22.266691&amp;spn=0.006295,0.006295" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+						</div>
+						<div class="contactAddress fortampere">
+							<div class="contactText">
+								<div class="head">
+									<div class="title">
+										NorthKino
+									</div>
+									<div class="address">
+										Hatanpään valtatie 1, 33100 Tampere
+									</div>
+								</div>
+								<br />
+								<div classs="mail">
+									<div class="emailTitle">
+										Email
+									</div>
+									<div class="emailText">
+										tampere@finnkino.com
+									</div>
+								</div>
+								<br />
+								<div class="services">
+									<div class="serviceTitle">
+										Telephone service
+									</div>
+									<div class="serviceTelephone">
+										Service hours: Weekdays 9:00-16:00<br>
+										09-1311 9205 (local network charge)
+									</div>
+								</div>
+							</div>
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy+++Hatanp%C3%A4%C3%A4n+valtatie&amp;aq=&amp;sll=61.496313,23.767215&amp;sspn=0.002903,0.010568&amp;ie=UTF8&amp;hq=Finnkino+Oy+++Hatanp%C3%A4%C3%A4n+valtatie&amp;hnear=&amp;radius=15000&amp;ll=61.496565,23.767268&amp;spn=0.071946,0.071946&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy+++Hatanp%C3%A4%C3%A4n+valtatie&amp;aq=&amp;sll=61.496313,23.767215&amp;sspn=0.002903,0.010568&amp;ie=UTF8&amp;hq=Finnkino+Oy+++Hatanp%C3%A4%C3%A4n+valtatie&amp;hnear=&amp;radius=15000&amp;ll=61.496565,23.767268&amp;spn=0.071946,0.071946&amp;t=m" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+						</div>						
+						<div class="contactAddress foroulu">
+							<div class="contactText">
+								<div class="head">
+									<div class="title">
+										NorthKino
+									</div>
+									<div class="address">
+										Torikatu 32, 90100 Oulu
+									</div>
+								</div>
+								<br />
+								<div classs="mail">
+									<div class="emailTitle">
+										Email
+									</div>
+									<div class="emailText">
+										Oulu@finnkino.com
+									</div>
+								</div>
+								<br />
+								<div class="services">
+									<div class="serviceTitle">
+										Telephone service
+									</div>
+									<div class="serviceTelephone">
+										Service hours: Weekdays 9:00-16:00<br>
+										09-1311 9205 (local network charge)
+									</div>
+								</div>
+							</div>
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fi/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy,+Torikatu,+Oulu&amp;aq=0&amp;oq=finnkino&amp;sll=65.009491,25.474248&amp;sspn=0.011622,0.048752&amp;ie=UTF8&amp;hq=Finnkino+Oy,&amp;hnear=Torikatu,+Oulu&amp;ll=65.009491,25.474248&amp;spn=0.006295,0.007972&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.fi/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy,+Torikatu,+Oulu&amp;aq=0&amp;oq=finnkino&amp;sll=65.009491,25.474248&amp;sspn=0.011622,0.048752&amp;ie=UTF8&amp;hq=Finnkino+Oy,&amp;hnear=Torikatu,+Oulu&amp;ll=65.009491,25.474248&amp;spn=0.006295,0.007972&amp;t=m" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+						</div>
+						<div class="contactAddress forrovaniemi">
+							<div class="contactText">
+								<div class="head">
+									<div class="title">
+										NorthKino
+									</div>
+									<div class="address">
+										Pekankatu 12, 96100 Rovaniemi
+									</div>
+								</div>
+								<br />
+								<div classs="mail">
+									<div class="emailTitle">
+										Email
+									</div>
+									<div class="emailText">
+										rovaniemi@finnkino.com
+									</div>
+								</div>
+								<br />
+								<div class="services">
+									<div class="serviceTitle">
+										Telephone service
+									</div>
+									<div class="serviceTelephone">
+										Service hours: Weekdays 9:00-16:00<br>
+										09-1311 9205 (local network charge)
+									</div>
+								</div>
+							</div>
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy,+Pekankatu,+Rovaniemi,+Finland&amp;aq=0&amp;oq=Finnkino+Oy++rovani&amp;sll=60.453874,22.267635&amp;sspn=0.006,0.021136&amp;ie=UTF8&amp;hq=Finnkino+Oy,&amp;hnear=Pekankatu,+96200+Rovaniemi,+Finland&amp;ll=66.501935,25.728575&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Finnkino+Oy,+Pekankatu,+Rovaniemi,+Finland&amp;aq=0&amp;oq=Finnkino+Oy++rovani&amp;sll=60.453874,22.267635&amp;sspn=0.006,0.021136&amp;ie=UTF8&amp;hq=Finnkino+Oy,&amp;hnear=Pekankatu,+96200+Rovaniemi,+Finland&amp;ll=66.501935,25.728575&amp;spn=0.006295,0.006295&amp;t=m" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

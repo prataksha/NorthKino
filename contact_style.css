@@ -1,0 +1,258 @@
+* {margin: 0; padding:0;}
+body
+{
+	background-color: #9C9C9C;
+	width: 1349px;
+	margin: auto;
+}
+.header
+{
+	width: 80%;
+	margin: auto;
+	height: 150px;
+	transition:height 1s ease-in-out;
+	-moz-transition:height 1s; /* Firefox 4 */
+	-webkit-transition:height 1s; /* Safari and Chrome */
+	-o-transition:height 1s; /* Opera */ 
+}
+/*.header:hover
+{
+	background-image: url('madagascar_header.png');
+	background-repeat: no-repeat;
+	background-position: center;
+} js for random genreator*/
+#search
+{
+	float:right;
+}
+#searchButton
+{
+	background-color: #6A6A6A;
+	border: none;
+	color: white;
+	font-weight: bold;
+}
+#searchButton:hover
+{
+	background-color: #0A0A09;
+}
+#logo 
+{
+	top: -5px;
+}
+.location_options
+{
+	background-color: #0A0A09;
+	color: white;
+	font-family: sans-serif;
+	float: right;
+	position: relative;
+	bottom: 30px;
+	overflow: hidden;
+}
+#name
+{
+	color: #000014;
+	font-weight: bold;
+	font-family: Impact;
+	font-size: 30px;
+	text-shadow:2px 2px #8C8C8C;
+}
+.container
+{
+	width: 80%;
+	margin: auto;
+}
+.clear
+{
+	clear: both;
+}
+.main_container
+{
+	background-color: white;
+	border-radius: 1em;
+}
+#menu
+{	
+	//background-image: linear-gradient(bottom, rgb(201,197,183) 50%, rgb(209,205,194) 50%, rgb(216,240,240) 88%);
+	//background-image: -o-linear-gradient(bottom, rgb(201,197,183) 50%, rgb(209,205,194) 50%, rgb(216,240,240) 88%);
+	//background-image: -moz-linear-gradient(bottom, rgb(201,197,183) 50%, rgb(209,205,194) 50%, rgb(216,240,240) 88%);
+	//background-image: -webkit-linear-gradient(bottom, rgb(201,197,183) 50%, rgb(209,205,194) 50%, rgb(216,240,240) 88%);
+	//background-image: -ms-linear-gradient(bottom, rgb(201,197,183) 50%, rgb(209,205,194) 50%, rgb(216,240,240) 88%);
+	
+	background-image: linear-gradient(bottom, rgb(5,12,31) 52%, rgb(42,47,71) 56%, rgb(53,53,66) 53%);
+background-image: -o-linear-gradient(bottom, rgb(5,12,31) 52%, rgb(42,47,71) 56%, rgb(53,53,66) 53%);
+background-image: -moz-linear-gradient(bottom, rgb(5,12,31) 52%, rgb(42,47,71) 56%, rgb(53,53,66) 53%);
+background-image: -webkit-linear-gradient(bottom, rgb(5,12,31) 52%, rgb(42,47,71) 56%, rgb(53,53,66) 53%);
+background-image: -ms-linear-gradient(bottom, rgb(5,12,31) 52%, rgb(42,47,71) 56%, rgb(53,53,66) 53%);
+
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	height: 50px;
+}
+#menu_list 
+{
+	padding-top: 15px;
+	margin-left:20px;
+}
+#menu li
+{
+	list-style: none;
+	display: inline;
+	padding: 15px;
+	color: white;
+	font-family: Tahoma;
+	transition:padding 1s ease-in-out;
+	-moz-transition:padding 1s; /* Firefox 4 */
+	-webkit-transition:padding 1s; /* Safari and Chrome */
+	-o-transition:padding 1s; /* Opera */ 
+}
+#active
+{
+	background-image: linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -o-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+
+	//padding-left: 30px;
+	//padding-right: 30px;
+}
+#menu_list a
+{
+	text-decoration: none;
+	height: 50px;
+}
+#menu_list li:hover
+{
+	background-image: linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -o-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.toggler
+{
+	background-image: linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -o-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+
+	padding-left: 30px;
+	padding-right: 30px;
+}
+#submenu
+{
+	background-image: linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -o-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(47,50,59) 85%, rgb(42,47,71) 56%, rgb(43,43,56) 100%);
+	
+	font-family:"Times New Roman",Times,serif;
+	position: fixed;
+	color: white;
+	margin-left: 8%;	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	display:none;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	box-shadow: 0px 2px 2px #888;
+	z-index: 20;
+	
+}
+
+#submenu a 
+{
+	color: white;
+	padding-right: 10px;	
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+}
+
+#submenu a:last-child
+{
+	padding-right: 0px;
+}
+
+#submenu a:hover
+{
+	text-shadow: 0px 0px 2px #9FF;
+}
+.leftContainer
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 15%;
+}
+#places
+{
+	list-style: none;
+	width: 100%;
+	font-weight: bold;
+	font-family: tahoma;
+	font-size: 100%;
+}
+#places li
+{
+	border-bottom: 1px solid gray;
+	border-radius: 5px;
+	padding-left: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #A5A5A5;
+	margin-right: 10px;
+	cursor: pointer;	
+	-webkit-transition: all 0.5s ease-in;
+}
+#oulu
+{
+	
+}
+.rightContainer
+{
+	display: inline-block;
+	padding: 15px;
+	background-color: #DFDFD1;
+	height: 350px;
+	overflow: hidden;
+}
+.contactText
+{
+	float: right;
+}
+.title
+{
+	font-family: tahoma;
+	font-size: 100%;
+	font-weight: bold;
+}
+.emailTitle
+{
+	font-family: tahoma;
+	font-size: 100%;
+	font-weight: bold;
+}
+.serviceTitle
+{
+	font-family: tahoma;
+	font-size: 100%;
+	font-weight: bold;
+}
+.contactAddress
+{
+	position: absolute;
+	visibility: hidden;
+}

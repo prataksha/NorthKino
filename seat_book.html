@@ -1,0 +1,219 @@
+<html>
+	<head>
+		<title>
+		
+		</title>
+		<link rel="stylesheet" type="text/css" href="seat_book_style.css" />
+		<script src="jquery-1.8.2.js"></script>
+		<script>
+			$(document).ready(function()
+			{	
+				//var seats = new Array();
+				for (var i=0;i<11*5;i++)
+				{
+					$('#seats').append('<div class="seats" onmouseover="over(this)" onmouseout="normal(this)" onclick="choosen(this)"></div>');
+				}
+			})
+			
+			var adult = 0;
+			//parseInt($('#adult').val());
+			var students = 0; 
+			//parseInt($('#students').val());
+			var total = 0;
+			//after 1st try
+			var checkingTry = true;
+			var storer = 0;
+			function tickets()
+			{
+				adult = parseInt($('#adult').val());
+				students = parseInt($('#students').val());
+				if (checkingTry == true)
+				{
+					total = adult + students;
+				}
+				else
+				{
+					total = (adult + students)-storer;
+				}
+				storer = total;
+			}
+			
+			function over(x)
+			{
+				if (total > 0)
+				{
+					var bigLeft = $(x).css('left');
+					//$('#hidden_seat').css('position','relative');
+					//$('#hidden_seat').animate({left:bigLeft},'fast');
+					$(x).css('background-color','#8F6B00');
+					//$(x).css('width','12px');
+					//$(x).transition({ scale: 1.2 });
+				}
+			}
+			function normal(x)
+			{
+				if (total > 0)
+				{
+					$(x).css('background-color','#00BA00');
+					//$(x).css('width','10px');
+				}
+			}
+			function choosen(x)
+			{
+				if (total > 0)
+				{
+					$(x).css('background-color','#FFCC00');
+					total --;
+					$(x).attr('onMouseOver','');
+					$(x).attr('onMouseOut','');
+				}
+				else
+				{
+					checkingTry = false;
+				}
+			}
+			
+			function submenuShow(element)
+  			{					  			  		
+  				if($(element).css('display') == 'none')
+  				{				  			  		
+  					$(element).slideDown("slow");
+		  			$('#mouseMovies').toggleClass("toggler");
+		  		}
+  				else
+  				{
+  					$(element).slideUp("slow");
+		  			$('#mouseMovies').toggleClass("toggler");
+		  		} 				
+  			}
+  	
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<table width="150" border="0" id="search">
+				<tr>
+					<td><input type="text" name="SearchQuery" placeholder="Search" size="15" /></td>
+					<td><input type="button" name="search" value="GO" id="searchButton" /></td>
+				</tr>
+			</table>
+			</br>
+			<div id="logo">
+				<a href="home.html"><img src="logo.png"><div id="name">Northkino</div></a>
+				<form action="">
+					<select name="location" class="location_options">
+						<option value="" disabled="disabled" selected="selected">Choose your location</option>
+                                                <option value="Helsinki">Helsinki</option>
+                                                <option value="Turku">Turku</option>
+                                                <option value="Tampere">Tampere</option>
+                                                <option value="Oulu">Oulu</option>
+                                                <option value="Rovaniemi">Rovaniemi</option>
+					</select>
+				</form>
+			</div>
+		</div>
+		<br>
+		<div style="{clear: both;}"></div>
+		<div class="container">
+			<div class="main_container">
+				<div id="menu">
+					<ul id="menu_list">
+						<a href="home.html"><li>HOME</li></a>
+						<a href="javascript:void(0)" onclick="submenuShow('#submenu')"><li id="active mouseMovies">MOVIES</li></a>
+						<a href="contact.html"><li>CONTACT</li></a>
+					</ul>
+				</div>
+				<div id="submenu">
+					<a href="more_movie.html">Now showing</a>
+					<a href="more_movie.html">Coming Soon</a>
+				</div>
+				<div class="leftContainer">
+					<table id="info">
+						<tr>
+							<td class="table_header">Cinema:</td>
+							<td>Oulu</td>
+						</tr>
+						<tr>
+							<td class="table_header">Movie:</td>
+							<td>To Rome With Love</td>
+						</tr>
+						<tr>
+							<td class="table_header">Time:</td>
+							<td>17:00, Room 1</td>
+						</tr>
+						<tr>
+							<td class="tickets">
+								Adult:
+							</td>
+							<td>
+								<select name="adult" id="adult" onchange="tickets()">
+									<option value="0" selected="selected">0</option>
+  									<option value="1">1</option>
+  									<option value="2">2</option>
+  									<option value="3">3</option>
+  									<option value="4">4</option>
+  									<option value="5">5</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="tickets">
+								Student:
+							</td>
+							<td>
+								<select name="students" id="students" onchange="tickets()">
+									<option value="0" selected="selected">0</option>
+  									<option value="1">1</option>
+  									<option value="2">2</option>
+  									<option value="3">3</option>
+  									<option value="4">4</option>
+  									<option value="5">5</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="rightContainer">
+					
+						<div class="title">
+							Choose the seats according to your preferance.
+						</div>
+					<div class="cinemaRoom">
+						<div class="screen">Movie Screen</div>
+						</br>
+						<div id="seats" onmouseover="showSeat()" onmouseout="hideSeat()">
+
+						</div>
+					</div>
+					<div class="index">
+						<table>
+							<tr>
+								<td>
+									<div class="seats"></div>
+								</td>
+								<td>
+									available
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="seats_unavailbale"></div>
+								</td>
+								<td>
+									unavailable 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="seats_Utook"></div>	
+								</td>
+								<td>
+									your choice
+								</td>
+							</tr>
+						</table>
+					</div>
+					<input id="submitSeats" type="submit" value="submit" />
+				</div>
+			</div>
+		</div>

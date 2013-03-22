@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>
+		
+		</title>
+		<script src="jquery-1.8.2.js"></script>
+		<link rel="stylesheet" type="text/css" href="more_movie_style.css" />
+		<script>
+			function submenuShow(element)
+  			{					  			  		
+  				if($(element).css('display') == 'none')
+  				{				  			  		
+  					$(element).slideDown("slow");
+		  			$('#mouseMovies').toggleClass("toggler");
+		  		}
+  				else
+  				{
+  					$(element).slideUp("slow");
+		  			$('#mouseMovies').toggleClass("toggler");
+		  		} 				
+  			}
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<table width="150" border="0" id="search">
+				<tr>
+					<td><input type="text" name="SearchQuery" placeholder="Search" size="15" /></td>
+					<td><input type="button" name="search" value="GO" id="searchButton" /></td>
+				</tr>
+			</table>
+			</br>
+			<div id="logo">
+				<a href="home.html"><img src="logo.png"><div id="name">Northkino</div></a>
+				<form action="">
+					<select name="location" class="location_options">
+						<option value="" disabled="disabled" selected="selected">Choose your location</option>
+						<option value="Helsinki">Helsinki</option>
+						<option value="Turku">Turku</option>
+						<option value="Tampere">Tampere</option>
+						<option value="Oulu">Oulu</option>
+						<option value="Rovaniemi">Rovaniemi</option>
+					</select>
+				</form>
+			</div>
+		</div>
+		<br>
+		<div style="{clear: both;}"></div>
+		<div class="container">
+			<div class="main_container">
+				<div id="menu">
+					<ul id="menu_list">
+						<a href="home.html"><li>HOME</li></a>
+						<a href="javascript:void(0)" onclick="submenuShow('#submenu')"><li id="active">MOVIES</li></a>
+						<a href="contact.html"><li>CONTACT</li></a>
+					</ul>
+				</div>
+				<div id="submenu">
+					<a href="more_movie.html">Now showing</a>
+					<a href="more_movie.html">Coming Soon</a>
+				</div>
+				<div class="movie_list">
+					<div class="movies">
+						<h2 class="movie_title">To Rome With Love</h2>
+						<div class="movie_img"><img src="rome.png" height="150" width="150"></div>
+						<div ="star_img"><img src="star_full.gif"><img src="star_full.gif"><img src="star_full.gif"><img src="star_full.gif"><img src="star_full.gif"></div>
+						<div class="movie_info">
+							<div class="teaser"><p>The lives of some visitors and residents of Rome and the romances, adventures and predicaments they get into.</p></div>
+							<br />
+							<div class="dateNticket">
+								<p>release date: 20.10.2012</p>
+								<p>Director: Woody Allen</p>
+								<p>Price: $10</p>
+								<br>
+								<select name="show_time" class="show_time">
+  									<option value="">17:00, Room 1</option>
+  									<option value="">18:30, Room 3</option>
+  									<option value="">20:00, Room 2</option>
+  									<option value="">21:00, Room 3</option>
+								</select>
+								<div class="ticket">
+									<a href="seat_book.html">Buy Ticket</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="movies">
+						<h2 class="movie_title">TED</h2>
+						<div class="movie_img"><img src="ted.png" height="150" width="150"></div>
+						<div ="star_img"><img src="star_full.gif"><img src="star_full.gif"><img src="star_full.gif"><img src="star_full.gif"><img src="star_full.gif"></div>
+						<div class="movie_info">
+							<div class="teaser"><p>As the result of a childhood wish, John Bennett's teddy bear, Ted, came to life and has been by John's side ever since - a friendship that's tested when Lori, John's girlfriend of four years, wants more from their relationship.</p></div>
+							<br />
+							<div class="dateNticket">
+								<p>release date: 20.10.2012</p>
+								<p>Director: Seth MacFarlane</p>
+								<p>Price: $10</p>
+								<br>
+								<select name="show_time" class="show_time">
+  									<option value="">17:00, Room 2</option>
+  									<option value="">18:30, Room 1</option>
+  									<option value="">20:00, Room 1</option>
+  									<option value="">21:00, Room 2</option>
+								</select>
+								<div class="ticket">
+									<a href="seat_book.html">Buy Ticket</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
